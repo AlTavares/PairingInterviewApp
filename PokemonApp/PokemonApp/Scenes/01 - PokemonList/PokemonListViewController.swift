@@ -4,6 +4,7 @@ class PokemonListViewController: UIViewController {
     let service = PokemonService()
     let imageLoader: ImageLoader
     let stackView = UIStackView()
+    let scrollView = UIScrollView()
     
     init(imageLoader: ImageLoader) {
         self.imageLoader = imageLoader
@@ -16,6 +17,7 @@ class PokemonListViewController: UIViewController {
     override func viewDidLoad() {
         view.backgroundColor = .white
         title = "Pokémon"
+        setupScrollView()
         setupStackView()
         showMock()
         service.getPokemonList { (result, error) in
@@ -24,20 +26,23 @@ class PokemonListViewController: UIViewController {
         }
     }
     
+    func setupScrollView() {
+        view.addAutoLayoutSubview(scrollView)
+        scrollView.edgesToSuperview()
+    }
+    
     func setupStackView() {
         stackView.axis = .vertical
-        view.addSubview(stackView)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addAutoLayoutSubview(stackView)
         
+        stackView.edgesToSuperview()
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            stackView.topAnchor.constraint(equalTo: view.topAnchor),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            stackView.widthAnchor.constraint(equalTo: view.widthAnchor)
         ])
     }
     
     func showMock() {
-        Array(repeating: PokemonViewData.mockList(), count: 10)
+        Array(repeating: PokemonViewData.mockList(), count: 30)
             .flatMap { $0 }
             .map(createCell(pokemonData:))
             .forEach(stackView.addArrangedSubview(_:))
@@ -62,21 +67,16 @@ class PokemonListViewController: UIViewController {
         nameLabel.textColor = .white
         typesLabel.textColor = .white
         
-        view.addSubview(contentView)
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(imageView)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(stackView)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+        view.addAutoLayoutSubview(contentView)
+        contentView.addAutoLayoutSubview(imageView)
+        contentView.addAutoLayoutSubview(stackView)
         
         stackView.addArrangedSubview(nameLabel)
         stackView.addArrangedSubview(typesLabel)
         
+        contentView.edgesToSuperview(top: 16, bottom: 16, leading: 24, trailing: 24)
+        contentView.layer.cornerRadius = 16
         NSLayoutConstraint.activate([
-            contentView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            contentView.topAnchor.constraint(equalTo: view.topAnchor, constant: 16),
-            contentView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16),
             imageView.widthAnchor.constraint(equalToConstant: 100),
             imageView.heightAnchor.constraint(equalToConstant: 100),
             imageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 8),

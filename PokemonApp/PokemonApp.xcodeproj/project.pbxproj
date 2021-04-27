@@ -28,6 +28,7 @@
 		2485DB65260387BC006B4A1A /* PokemonSpecies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2485DB64260387BC006B4A1A /* PokemonSpecies.swift */; };
 		2485DB6A260387E3006B4A1A /* PokemonEvolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2485DB69260387E3006B4A1A /* PokemonEvolution.swift */; };
 		2485DB6F2603C759006B4A1A /* DetailUI.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2485DB6E2603C759006B4A1A /* DetailUI.jpg */; };
+		24BDD5EF2638265500DEE7F6 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BDD5EE2638265500DEE7F6 /* UIViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		2485DB64260387BC006B4A1A /* PokemonSpecies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonSpecies.swift; sourceTree = "<group>"; };
 		2485DB69260387E3006B4A1A /* PokemonEvolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonEvolution.swift; sourceTree = "<group>"; };
 		2485DB6E2603C759006B4A1A /* DetailUI.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DetailUI.jpg; sourceTree = "<group>"; };
+		24BDD5EE2638265500DEE7F6 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 				2485DB4426026A57006B4A1A /* TapGestureRecognizer.swift */,
 				2485DB4C260278E1006B4A1A /* StringExtension.swift */,
 				2485DB5C26037BE5006B4A1A /* UIImageExtension.swift */,
+				24BDD5EE2638265500DEE7F6 /* UIViewExtension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24BDD5EF2638265500DEE7F6 /* UIViewExtension.swift in Sources */,
 				2485DB3F260155BE006B4A1A /* PokemonViewData.swift in Sources */,
 				2485DB6A260387E3006B4A1A /* PokemonEvolution.swift in Sources */,
 				2485DB4526026A57006B4A1A /* TapGestureRecognizer.swift in Sources */,
